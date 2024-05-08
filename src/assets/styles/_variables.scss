@@ -1,12 +1,39 @@
 @use "sass:color";
 
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-  "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-  "Segoe UI Symbol";
-$font-family-serif: "Georgia", "Times New Roman", serif;
+@import url('https://fonts.googleapis.com/css?family=Ropa+Sans');
 
-$uoc-corporate: #000078;
-$uoc-masterbrand: #73edff;
-$uoc-bg: color.scale($uoc-masterbrand, $lightness: 70%);
+// Text colors
+$white-text: rgb(250 250 250);
+$light-green: hsl(156 60% 59%);
+$grey-quote: hwb(0 40% 60%);
 
-$mqMinWidth: 420px;
+// Nav and background colors
+$beige-nav: rgb(255 247 236);
+$main-bg: hwb(337 66% 22%);
+$main-bg-rgb: rgb(199 168 180);
+
+// Red colors gamma
+$bg-red1: rgb(235 138 159);
+$bg-red2: hsl(337 41% 40%);
+
+// Prizes colors (article)
+$gold: hwb(54 11% 17%);
+$silver: hwb(0 74% 26%);
+$bronze: hwb(32 10% 50%);
+
+// Footer colors
+$dark-blue: hsl(193 100% 16%);
+$salmon: hsl(359 96% 76%);
+$footer-bg: rgb(0 0 0);
+
+// Used fonts
+$font-family-main: "Ropa Sans", sans-serif; 
+$font-family-fontawesome: "Font Awesome 5 Free", sans-serif;
+
+// Bootstrap overrides
+$theme-colors: (
+  "primary": $light-green,
+  "secondary": $bg-red2,
+);
+
+$body-bg: $main-bg-rgb;

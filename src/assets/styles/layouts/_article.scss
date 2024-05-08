@@ -1,0 +1,285 @@
+@use "sass:color";
+
+.contest-article {
+    text-align: justify;
+
+    &__header {
+        position: relative;
+        text-align: center; 
+    }
+  
+    &__image {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0 auto; 
+    }
+  
+    &__title {
+        position: absolute; 
+        top: 50%; 
+        left: 50%;
+        width: 100%;
+        padding: 10px; 
+        margin: 0; 
+        color: $white-text; 
+        background-color: rgba($bg-red2, 0.3); 
+        transform: translate(-50%, -50%);
+    }
+  
+    &__author {
+        padding: 10px;
+        font-style: italic;
+        color: $white-text;
+        text-align: left;
+        background-color: rgba($bg-red2, 0.5);
+
+        &--highlighted {
+          color: $light-green;
+        }
+    }
+  
+    &__content {
+        padding: 20px;
+        container: article / inline-size;
+
+        @include lg {
+            max-width: 70%;
+            margin: 0 auto;
+        }
+
+        .contest-article__content .page__content .judges__list {
+
+            @include lg {
+                max-width: 100%;
+                margin: 0;
+            }
+        }
+
+        // Center all headers of 'Sobre el concurso' page
+        :where(.about__heading, .judges__heading, .prizes__heading) {
+            text-align: center;
+        }
+
+        .about {
+            margin-bottom: 30px;
+
+            // 'Sobre el concurso' section layout in larger screens
+
+            @include lg {
+                &__container {
+                    display: grid;
+                    grid-template-columns: 20% auto; 
+                    grid-gap: 10px;
+                    grid-column-gap: 35px;
+                }
+
+                &__paragraph {
+                    margin-bottom: 15px;
+                }
+                
+                // Position of paragraph that has a link
+                &__paragraph:has(.about__link) {
+                    grid-row: 1 / span 2;
+                    grid-column: 1 / span 1; 
+                    text-align: justify;
+                }
+
+                // Position of rest of paragraphs that don't have a link
+                &__paragraph:has(:not(.about__link)) {
+                    grid-row: 1 / span 2;
+                    grid-column: 2 / span 1;
+                }
+            } 
+        }
+    
+        .judges {
+            &__item {
+                padding: 20px;
+                container: judges / inline-size;
+                margin: 10px auto;
+                list-style-type: none;
+                background-color: color.adjust($bg-red1, $lightness: 20%);
+                border-radius: 8px;
+                
+                .judges__image {
+                    width: 100px;
+                    height: auto;
+                    margin: 10px auto;
+                    overflow: hidden;
+                    border-radius: 50%;
+        
+                    &--responsive {
+                        width: 100%;
+                        height: 100%;
+                        margin: 0 auto;
+                        object-fit: cover;
+                    }
+                }
+        
+                .judges__name {
+                    font-weight: bold;
+                    text-align: center;
+                }
+        
+                .judges__bio {
+                    margin-bottom: 10px;
+                }
+                
+                // Quote container and design
+                .judges__quote {
+                    position: relative;
+                    width:fit-content;
+                    padding: 15px 45px;
+                    margin: 0 auto;
+                    font-style:italic;
+                    color: $grey-quote;
+                    background: color.adjust($light-green, $lightness: 37%);
+                    border-left: 2.5px solid $light-green;
+                    border-top-right-radius: 8px;
+                    border-bottom-right-radius: 8px;
+
+                    @include md {
+                        padding: 15px 20px;
+                    }
+
+                    @include xl {
+                        padding: 15px 35px;
+                    }
+        
+                    &::before{
+                        position: absolute;
+                        top:-10px;
+                        left: 10px;
+                        font-size:3.5em;
+                        color:$light-green;
+                        content: "\201C";
+
+                        @include md {
+                            left: -5px;
+                        }
+
+                        @include xl {
+                            left: 2px;
+                        }
+                    }
+
+                    &-cite {
+                        font-size: .9rem;
+                        font-style: normal;
+                        font-weight: bold;
+                        color:$light-green;
+                    }
+                }
+            }
+        }
+    
+        .prizes {
+            &__list {
+                width: fit-content;
+                padding: 12px 20px;
+                margin: 0 auto 15px;
+                list-style: none;
+                list-style-type: none;
+                background-color: rgba($bg-red2, 0.2);
+                border-radius: 3px;
+            }
+
+            &__item {
+                margin-bottom: 10px;
+
+                &--bold {
+                    font-weight: bold;
+                }
+
+                &::before {
+                    margin-right: 5px;
+                    font-family: $font-family-fontawesome;
+                    font-weight: 900;
+                    content: "\f091"; 
+                }
+
+                &:nth-child(1)::before {
+                    color: $gold;
+                }
+                
+                &:nth-child(2)::before {
+                    color: $silver;
+                }
+                
+                &:nth-child(3)::before {
+                    color: $bronze;
+                }
+            }
+        }   
+    }
+  
+    &__paragraph {
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+  
+    &__heading {
+        margin-top: 30px;
+        margin-bottom: 15px;
+        font-size: 22px;
+    }
+}
+
+// Styles for the aside paragraph in first section
+.about__paragraph:has(.about__link) {
+    font-size: 20px;
+    font-weight: bold;
+
+    .about__link {
+        color: $bg-red2;
+        text-decoration: none;
+
+        &:is(:hover, :focus) {
+            color: color.adjust($bg-red2, $lightness: -10%);
+        }
+    }
+}
+
+// Add red lines that separate sections
+:is(.judges, .prizes) {
+    padding: 35px 0 20px 0;
+    border-top: 2px solid $bg-red2;
+}
+
+// Solve scroll problem due to sticky header
+#premios {
+    scroll-margin-top: 140px; 
+
+    @include md {
+        scroll-margin-top: 50px;
+    }
+    
+}
+
+// Container queries for font-sizes
+
+@container article (min-width: 690px) { 
+    .contest-article__content {
+        .about__paragraph, .judges__paragraph, .prizes__paragraph {
+            font-size: 1.3rem;
+        }
+
+        .prizes__item {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+@container judges (max-width: 200px) { 
+    .judges__item {
+        .judges__bio, .judges__quote-text {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+// Sign-up links that are shared ('Participantes' and 'Sobre el concurso' pages)
+.link-primary {
+    text-decoration: none;
+}

@@ -1,0 +1,250 @@
+@use "sass:color";
+
+// Style for the poster items and default style for browsers that do not support Grid
+.poster {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: url(../images/mae-mu-Pvclb-iHHYY-unsplash-2400.jpg) no-repeat center;
+    background-size: cover;
+    container: poster / inline-size;
+
+    @include sm {
+        padding: 0 80px;
+    }
+
+    @include md {
+        padding: 30px 120px;
+    }
+
+    @include lg {
+        padding: 50px 180px;
+    }
+
+    @include xxl {
+        padding: 50px 300px;
+    }
+    
+    &__header {
+        display: inline;
+        padding: 10px; 
+        font-weight: bold;
+        color: $white-text;
+        text-align: center;   
+    }
+
+    &__title {
+        font-weight: bold;   
+    }
+
+    &__icon {
+        width: 50px;
+        height: auto;
+    }
+
+    &__subtitle {
+        margin: 0;
+        font-size: 1rem;
+        color: $dark-blue;
+
+        @include lg {
+            font-size: 1.2rem;
+        }
+    }
+
+    &__item {
+        width: 150px;
+        padding: 10px;
+        margin: 10px;
+        line-height: 1.2;
+        background-color: rgba($bg-red1, 0.85);
+        border-radius: 8px; 
+
+        @include lg {
+            width: 200px;
+        }
+
+        &:nth-child(2) {
+            width: 170px;
+
+            @include lg {
+                width: 220px;
+            }
+
+            @include xxl {
+                width: 280px;
+            }
+        }
+
+        &:nth-child(3) {
+            align-self:flex-start;
+        }
+
+        &:nth-child(5) {
+            align-self:flex-end;
+        }
+
+        &:nth-child(6) {
+            width: 170px;
+            background-color: rgba($bg-red2, 0.85);
+
+            @include lg {
+                width: 220px;
+            }
+
+            @include xxl {
+                width: 280px;
+            }
+           
+            .poster__subtitle {
+                color: $light-green;
+            }
+        }
+    }
+
+    &__link {
+        font-weight: bold;
+        color: $dark-blue;
+        list-style: none;
+
+        &:hover {
+            color: color.adjust($dark-blue, $lightness: 5%);
+        }
+    }
+
+    &__sign-up {
+        width: 180px;
+        padding: 10px;
+        margin: 10px;
+        background: $bg-red2;
+        border-radius: 8px; 
+
+        @include lg {
+            width: 240px;
+            margin-top: 30px;
+        }
+
+        @include xxl {
+            width: 350px;
+        }
+
+        &-title {
+            padding: 2px;
+            margin: 0;
+            font-size: 1rem;
+            color: $white-text;
+            text-transform: uppercase;
+
+            @include lg {
+                font-size: 1.2rem;
+            }
+
+            &--highlighted {
+                font-weight: bold;
+                color: $light-green;
+            }
+        }
+
+        &-description {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: $white-text;
+
+            @include lg {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    &__description {
+        margin: 0;
+        margin-top: 5px;
+        font-size: 0.9rem;
+        color: $white-text;
+
+        @include lg {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+// Containers to change the width of red boxes
+
+@container poster (min-width: 500px) { 
+    .poster {
+        &__item {
+            width: 30%;
+        }
+    }
+}
+
+@container poster (min-width: 750px) { 
+    .poster {
+        &__item {
+            width: 35%;
+        }
+    }
+}
+
+@container poster (min-width: 992px) { 
+    .poster {
+        &__item {
+            width: 40%;
+        }
+    }
+}
+
+// Layout for browsers that support Grid
+
+@supports (display: grid) {
+    .poster {
+        display: grid;
+        grid-template-rows: repeat(5, auto);
+        grid-template-columns: repeat(7, 1fr);
+        gap: 10px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin: 0 auto;
+
+        &__item,
+        &__sign-up {
+            width: auto;
+            height: auto;
+            margin: none;
+        }
+      
+        &__header {
+            grid-area: 2 / 1 / auto / span 4;
+            padding-top: 1rem;
+        }
+        
+        &__sign-up {
+            grid-area: 5 / 4 / auto / span 3;
+            padding: 1.1rem;  
+
+            @include sm {
+                grid-area: 5 / 4 / auto / span 4;
+            }
+        } 
+
+        &__item:nth-child(2) {
+            grid-area: 1 / 4 / auto / span 2;
+        }
+
+        &__item:nth-child(3) {
+            grid-area: 2 / 5 / auto / span 2;
+        }  
+
+        &__item:nth-child(4) {
+            grid-area: 3 / 2 / auto / span 3;
+        }
+
+        &__item:nth-child(5) {
+            grid-area: 4 / 3 / auto / span 3;
+        }
+
+        &__item:nth-child(6) {
+            grid-area: 3 / 5 / auto / span 2;
+        }
+    }
+}

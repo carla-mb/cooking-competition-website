@@ -1,0 +1,60 @@
+// Styles for the form
+.form {
+    width: 90dvw;
+    margin: 0 auto;
+    background-color: rgba($bg-red2, 0.2);
+    border-radius: 8px;
+
+    @include md {
+        width: 50dvw;
+    }
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    background-color: $white-text;
+
+    &:focus {
+        background-color: $white-text;
+    }
+}
+
+.btn {
+    width: auto; 
+    padding: 6px 12px; 
+    margin-bottom: 8px;
+    margin-left: 8px;
+    font-size: 1rem;
+}
+
+.page__content:has(.form) {
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: justify;
+
+    @include md {
+        max-width: 60%;
+    }
+}
+
+// Font resize of p and li elements using container
+.inscripcion-content {
+    container: inscripcion / inline-size;
+}
+
+@container inscripcion (min-width: 690px) { 
+    .inscripcion-content {
+        .page__paragraph, .sources, .form, .btn {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+// Styles for the sources 
+.sources {
+    margin-bottom: 50px;
+    list-style-type: "\1F517";
+}

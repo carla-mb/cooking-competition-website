@@ -9,14 +9,17 @@
 
 @import "variables";
 
+@import "queries";
+
 /**
  * Import npm dependencies
  * see: https://v2.parceljs.org/features/module-resolution/
  * see commented examples below
  */
 
-// @import "some-node-module";
-// @import "@some-company/some-node-module";
+@import "bootstrap/scss/bootstrap";
+
+@import "npm:@fortawesome/fontawesome-free/css/all.css";
 
 /**
  * Import layouts
@@ -24,6 +27,20 @@
  */
 
 @import "layouts/home";
+
+@import "layouts/headernav";
+
+@import "layouts/poster";
+
+@import "layouts/participantes";
+
+@import "layouts/article";
+
+@import "layouts/form";
+
+@import "layouts/animation";
+
+@import "layouts/footer";
 
 /**
  * Do NOT include anything else in this file!

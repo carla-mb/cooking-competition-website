@@ -1,0 +1,51 @@
+// Styles for animated svg and paragraph
+.animated-svg {
+    width: 30dvw;
+    padding: 6px;
+    background-color: oklch(54.82% 0.167 6.78 / 67.58%);
+    background-color: rgb(188 58 97 / 0.68); // fallback color
+    border-radius: 8px;
+    fill: $bg-red1;
+
+    @include sm {
+        width: 15dvw;
+    }
+
+    @include md {
+        width: 10dvw;
+    }
+
+    @include lg {
+        width: 15dvw;
+    }
+
+    @include xl {
+        width: 13dvw;
+    }
+}
+
+/* stylelint-disable selector-class-pattern */
+.animate__animated.animate__rubberBand {
+    --animate-duration: 2s;
+}
+/* stylelint-enable selector-class-pattern */
+
+.page__paragraph--hidden {
+    padding-top: 20px;
+    visibility: hidden;
+}
+
+.animation-container {
+    container: animation / inline-size;
+}
+
+// Container that places the svg in the center when container is wider
+
+@container animation (min-width: 500px) { 
+    #cooking-svg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,78 @@
+@use "sass:color";
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 40px 20px 20px;
+    color: $white-text;
+    text-align: center;
+    background-color: $dark-blue;
+
+    &__site {
+        margin-top: 20px;
+    }
+    
+    &__site-links {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    
+    &__link {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    
+    &__link-anchor {
+        color: $salmon;
+        text-decoration: none;
+
+        &:is(:hover, :focus) {
+            color: color.adjust($salmon, $lightness: -8%);
+        }
+    }
+
+    // Flexbox for larger screens
+
+    @include lg {
+        &__flex-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            width: 85%;
+            margin: 0 auto;
+        }
+
+        &__paragraph {
+            width: 85%;
+            padding-left: 45px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        &__line {
+            width: 85%;
+            margin: 20px auto;
+            border-top: 1px solid $salmon;
+        }
+
+        &__site {
+            margin-top: 0;
+        }
+
+        &__button {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+// Override of bootstrap buttons for the social links
+.btn-link.text-dark {
+    color: $salmon;
+
+    &:hover, &:active {
+        color: color.adjust($salmon, $lightness: -8%);
+    }
+}

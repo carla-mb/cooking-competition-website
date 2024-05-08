@@ -1,0 +1,38 @@
+<main class="page__content">
+    <article class="inscripcion-content">
+        <section class="form-container">
+            <h2 class="page__heading">Formulario de inscripción</h2>
+            <p class="page__paragraph">Para poderte presentar al concurso y formar parte de nuestros fantásticos <a class="link-secondary" href="./participantes.html">Participantes</a> tan solo tienes que rellenar y enviar el siguiente formulario.</p>
+            <p class="page__paragraph">Una vez lo hayamos procesado, contactaremos contigo y procederemos a añadirte al resto de concursantes.</p>
+            <form class="form row g-3" action="#">
+                <div class="form__group col-md-6 form-group">
+                    <label class="form__label" for="name">Nombre</label>
+                    <input class="form__input form-control" type="text" id="name" name="name" required>
+                </div>
+                <div class="form__group col-md-6 form-group">
+                    <label class="form__label" for="surname">Apellido</label>
+                    <input class="form__input form-control" type="text" id="surname" name="surname" required>
+                </div>
+                <div class="form__group col-md-6 form-group">
+                    <label class="form__label" for="image">Imagen pública</label>
+                    <input class="form__input form-control" type="file" id="image" name="image" accept="image/*" required>
+                </div>
+                <div class="form__group col-md-6 form-group">
+                    <label class="form__label" for="email">Email</label>
+                    <input class="form__input form-control" type="email" id="email" name="email" required>
+                </div>
+                <div class="form__group form-group">
+                    <label class="form__label" for="quote">Frase corta</label>
+                    <textarea class="form__textarea form-control" id="quote" name="quote" rows="3" placeholder="Indicanos en pocas líneas lo que te inspira cocinar." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+            </form>
+        </section>
+        <section class="animation-container">
+            <include src="./views/animation.html"></include>
+        </section>
+        <section class="sources-container">
+            <include src="./views/sources.html"></include>
+        </section>
+    </article>
+</main>

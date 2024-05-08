@@ -1,0 +1,103 @@
+.participant {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    container: participants / inline-size;
+
+    &__individual {
+        max-width: 250px;
+        padding: 10px;
+        margin: 20px;
+        color: $white-text;
+        background-color: $bg-red2;
+        border: 2.5px solid $light-green;
+        border-radius: 8px;
+    }
+
+    &__image {
+        text-align: center;
+        
+        &--responsive {
+            width: 75%;
+            max-width: 100%;
+            height: auto;
+            border: 2.5px solid $light-green;
+            border-radius: 50%;
+        }
+    }
+
+    &__info {
+        text-align: center;
+    }
+
+    &__name {
+        margin-top: 10px;
+        font-size: 1.2em;
+        color: $light-green;
+    }
+
+    &__age,
+    &__profession {
+        margin: 5px 0;
+        font-size: 0.9em;
+    }
+
+    &__quote {
+        margin-top: 10px;
+        font-size: 0.85rem;
+        font-style: italic;
+        quotes: "“" "”" "‘" "’";
+    }
+}
+
+.page__disclaimer {
+    width: 90%;
+    margin: 0 auto 30px;
+    font-size: .9rem;
+    text-align: center;
+
+    &:not(.contest-article > .page__disclaimer) {
+        margin-top: 30px;
+    }
+}
+
+.sign-up {
+    width: 90%;
+    padding: 10px;
+    margin: 0 auto;
+    color: $white-text;
+    text-align: center;
+    background-color: $bg-red2;
+    border-radius: 8px;
+
+    @include md {
+        width: 60%;
+    }
+
+    &:not(.contest-article__content > .sign-up) {
+        margin-bottom: 20px;
+    }
+
+    &__description--highlighted { 
+        color: $light-green 
+    }
+}
+
+// Container to change size of individual elements (contestants)
+
+@container participants (min-width: 540px) { 
+    .participant {
+        &__individual {
+            width: 30%;
+        }
+
+        &__name {
+            font-size: 1.4em;
+        }
+    
+        &__age,
+        &__profession {
+            font-size: 1em;
+        }
+    }
+}
