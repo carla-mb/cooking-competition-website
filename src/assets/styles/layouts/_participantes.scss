@@ -84,7 +84,6 @@
 }
 
 // Container to change size of individual elements (contestants)
-
 @container participants (min-width: 540px) { 
     .participant {
         &__individual {
@@ -101,3 +100,4 @@
         }
     }
 }
+

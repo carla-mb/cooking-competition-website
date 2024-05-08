@@ -15,14 +15,15 @@ import * as bootstrap from 'bootstrap'
 
 // Add active class to current nav item
 document.addEventListener('DOMContentLoaded', function() {
-    // Get the current page URL path
-    const path = window.location.pathname.substring(1);
+    // Get the current page URL
+    const currentUrl = window.location.href;
 
     // Find the active link in the navigation and add 'active' class
     const navLinks = document.querySelectorAll('.nav__link');
     if (navLinks) {
         navLinks.forEach(link => {
-            if (link.getAttribute('href') === path) {
+            // Check if the link's href matches the current URL
+            if (link.href === currentUrl) {
                 link.classList.add('active');
             }
         });
