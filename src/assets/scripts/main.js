@@ -17,16 +17,16 @@ import * as bootstrap from 'bootstrap'
 document.addEventListener('DOMContentLoaded', function() {
     // Get the current page URL path
     const path = window.location.pathname.substring(1);
-    console.log('Current path:', path);
 
     // Find the active link in the navigation and add 'active' class
-    document.querySelectorAll('.nav__link').forEach(link => {
-        console.log('Link href:', link.getAttribute('href'));
-        if (link.getAttribute('href') === path) {
-            console.log('Adding active class to:', link);
-            link.classList.add('active');
-        }
-    });
+    const navLinks = document.querySelectorAll('.nav__link');
+    if (navLinks) {
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === path) {
+                link.classList.add('active');
+            }
+        });
+    }
 });
 
 // Import animate.css to use it in the project
